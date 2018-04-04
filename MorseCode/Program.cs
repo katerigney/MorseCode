@@ -24,11 +24,6 @@ namespace MorseCode
                 {
                     var letterInfo = readFile.ReadLine().Split(',');
                     morseLibrary.Add(Convert.ToChar(letterInfo[0]), letterInfo[1]);
-                    //  foreach (var letter in morseLibrary)
-                    //{
-                        //        Console.WriteLine($"{letter.Key}, {letter.Value}");
-
-                        //  }
                     }
                 }
 
@@ -44,33 +39,33 @@ namespace MorseCode
                     var morseTranslation = "";
 
 
-                    //The Program should convert the text that the use typed in to Morse Code
+                //The Program should convert the text that the use typed in to Morse Code
 
-                    //break apart string into characters
-                    //for each character it should find and return that value (morse translation) should be stored and added to a new string
-                    foreach (var letter in letters)
+                //break apart string into characters
+                //for each character it should find and return that value (morse translation) should be stored and added to a new string
+                foreach (var letter in letters)
+                {
+                    if (morseLibrary.ContainsKey(letter))
                     {
-                        if (morseLibrary.ContainsKey(letter))
-                        {
-                            morseTranslation = morseTranslation + morseLibrary[letter];
-                        }
+                        morseTranslation = morseTranslation + morseLibrary[letter];
+                    } else
+                    {
+                        morseTranslation = morseTranslation + letter;
                     }
-
-
-
-
+                    }
                     //The Program should display the converted text to the user
                     Console.WriteLine($"{morseTranslation}");
-
-
+                    Console.WriteLine("Do you want to translate another word? (Yes) or (No)");
+                    var command = Console.ReadLine();
+                    if (command == "no")
+                {
+                    programIsRunning = false;
                 }
-
-
-                //Adventure
-                //Save the User's past results and display them if the user asks. This should persist across multiple runnings of the app (read/write to a file)
-                //Allow the user to type in Morse Code and convert to English (need spaces between characters)
-                Console.ReadLine();
+            }
             }
         }
     }
 
+//Adventure
+//Save the User's past results and display them if the user asks. This should persist across multiple runnings of the app (read/write to a file)
+//Allow the user to type in Morse Code and convert to English (need spaces between characters)
