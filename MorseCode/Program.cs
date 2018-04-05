@@ -84,18 +84,7 @@ namespace MorseCode
                 {
                     ShowStoredData(userData);
                 }
-                else
-                {
-                    //Console.WriteLine("Do you want to translate (English to Morse Code) or (Morse Code to English)?");
-                    //var languageResponse = Console.ReadLine().ToLower();
-                    //if (languageResponse == "English to Morse Code"){
-
-                    //}
-                    // else
-                    // {
-
-                    // }
-                }
+             
 
                 Console.WriteLine("Let's translate some Morse Code! What would you like to translate?");
                 var query = Console.ReadLine();
